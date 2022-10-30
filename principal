@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		String opcao;
+		Tema tema = new Tema();
+		Aluguel aluguel = new Aluguel();
+		
+	
+		do {
+			System.out.println("Agenda de Contatos\n"
+					+ "1 - Listar tema\n"
+					+ "2 - Consultar tema\n"
+					+ "3 - Cadastrar aluguel\n"
+					+ "4 - Imprimir aluguel\n"
+					+ "5 - Sair");
+			opcao = entrada.next();
+			switch(opcao) {
+				case "1":
+					tema.listarTemas();
+					break;
+				case "2":
+					System.out.println("Informe um tema: ");
+					String nomeTema=entrada.next();
+					tema.consultarTema(nomeTema);
+					break;
+				case "3":
+					aluguel.cadastrarAluguel("Victor", "9993", "Vp", "8", "Casa", "7215", "DF", "Brasília", "VP", "24/05/2023", "15:00", "21:00", 190, "carros" );
+					break;
+				case "4":
+					aluguel.imprimirAluguel();
+					break;
+				case "5":
+					System.out.println("Saindo do sistema...");
+					System.exit(0);
+					break;
+				default:
+					System.out.println("Opção inválida!");
+					break;
+			}
+		}while(opcao!="5");
+		
+		
+	}
+
+}
